@@ -37,6 +37,24 @@ _RAW_DIR = 'raw_dir'
 
 # Available datasets
 _DATASETS = {
+    'table_tp_ig_train': {
+        _IM_DIR:
+            _DATA_DIR + '/table_tp_ig_train/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_tp_ig_train/annotation.json'
+    },
+    'table_tp_nh_train': {
+        _IM_DIR:
+            _DATA_DIR + '/table_tp_nh_train/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_tp_nh_train/annotation.json'
+    },
+    'table_fp_ig_train': {
+        _IM_DIR:
+            _DATA_DIR + '/table_fp_ig_train/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_fp_ig_train/annotation.json'
+    },
     'cityscapes_fine_instanceonly_seg_train': {
         _IM_DIR:
             _DATA_DIR + '/cityscapes/images',

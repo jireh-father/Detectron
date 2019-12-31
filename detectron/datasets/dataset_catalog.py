@@ -49,11 +49,11 @@ _DATASETS = {
         _ANN_FN:
             _DATA_DIR + '/table_tp_nh_train/annotation.json'
     },
-    'table_fp_ig_train': {
+    'table_fp_train': {
         _IM_DIR:
-            _DATA_DIR + '/table_fp_ig_train/images',
+            _DATA_DIR + '/table_fp_train/images',
         _ANN_FN:
-            _DATA_DIR + '/table_fp_ig_train/annotation.json'
+            _DATA_DIR + '/table_fp_train/annotation.json'
     },
     'cityscapes_fine_instanceonly_seg_train': {
         _IM_DIR:

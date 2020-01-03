@@ -55,6 +55,24 @@ _DATASETS = {
         _ANN_FN:
             _DATA_DIR + '/table_fp_train/annotation.json'
     },
+    'table_tp_ig_val': {
+        _IM_DIR:
+            _DATA_DIR + '/table_tp_ig_val/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_tp_ig_val/annotation.json'
+    },
+    'table_tp_nh_val': {
+        _IM_DIR:
+            _DATA_DIR + '/table_tp_nh_val/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_tp_nh_val/annotation.json'
+    },
+    'table_fp_val': {
+        _IM_DIR:
+            _DATA_DIR + '/table_fp_val/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_fp_val/annotation.json'
+    },
     'cityscapes_fine_instanceonly_seg_train': {
         _IM_DIR:
             _DATA_DIR + '/cityscapes/images',

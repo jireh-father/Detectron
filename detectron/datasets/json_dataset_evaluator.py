@@ -150,7 +150,7 @@ class Params:
         self.recThrs = np.linspace(.0, 1.00, int(np.round((1.00 - .0) / .01)) + 1, endpoint=True)
         self.maxDets = [1, 10, 100]
         # self.areaRng = [[0 ** 2, 1e5 ** 2], [0 ** 2, 32 ** 2], [32 ** 2, 96 ** 2], [96 ** 2, 1e5 ** 2]]
-        self.areaRng = [[0 ** 2, 1e5 ** 2], [0 ** 2, 700. ** 2], [700. ** 2, 1600. ** 2], [1600. ** 2, 2500. ** 2]]
+        self.areaRng = [[0 ** 2, 1e5 ** 2], [0 ** 2, 700. ** 2], [700. ** 2, 1200. ** 2], [1200. ** 2, 1600. ** 2]]
         self.areaRngLbl = ['all', 'small', 'medium', 'large']
         self.useCats = 1
 

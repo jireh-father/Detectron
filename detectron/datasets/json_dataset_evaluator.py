@@ -271,8 +271,10 @@ def _log_detection_eval_metrics(json_dataset, coco_eval):
         assert np.isclose(iou_thr, thr)
         return ind
 
-    IoU_lo_thresh = 0.5
-    IoU_hi_thresh = 0.95
+    # IoU_lo_thresh = 0.5
+    # IoU_hi_thresh = 0.95
+    IoU_lo_thresh = 0.95
+    IoU_hi_thresh = 1.
     ind_lo = _get_thr_ind(coco_eval, IoU_lo_thresh)
     ind_hi = _get_thr_ind(coco_eval, IoU_hi_thresh)
     # precision has dims (iou, recall, cls, area range, max dets)

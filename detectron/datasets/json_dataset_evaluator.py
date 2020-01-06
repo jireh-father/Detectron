@@ -87,6 +87,9 @@ class CustomCOCOeval(COCOeval):
             stats[1] = _summarize(1, iouThr=.5, maxDets=self.params.maxDets[2])
             stats[2] = _summarize(1, iouThr=.75, maxDets=self.params.maxDets[2])
             stats[3] = _summarize(1, iouThr=.85, maxDets=self.params.maxDets[2])
+            stats[3] = _summarize(1, iouThr=.862, maxDets=self.params.maxDets[2])
+            stats[3] = _summarize(1, iouThr=.874, maxDets=self.params.maxDets[2])
+            stats[3] = _summarize(1, iouThr=.887, maxDets=self.params.maxDets[2])
             stats[4] = _summarize(1, iouThr=.90, maxDets=self.params.maxDets[2])
             stats[5] = _summarize(1, iouThr=.94, maxDets=self.params.maxDets[2])
             stats[6] = _summarize(1, iouThr=.98, maxDets=self.params.maxDets[2])
@@ -146,7 +149,7 @@ class Params:
         self.recThrs = np.linspace(.0, 1.00, int(np.round((1.00 - .0) / .01)) + 1, endpoint=True)
         self.maxDets = [1, 10, 100]
         # self.areaRng = [[0 ** 2, 1e5 ** 2], [0 ** 2, 32 ** 2], [32 ** 2, 96 ** 2], [96 ** 2, 1e5 ** 2]]
-        self.areaRng = [[0 ** 2, 1e5 ** 2], [0 ** 2, 1e3 ** 2], [1e3 ** 2, .5e4 ** 2], [.5e4 ** 2, 1e4 ** 2]]
+        self.areaRng = [[0 ** 2, 1e5 ** 2], [0 ** 2, 1e3 ** 2], [1e3 ** 2, .25e4 ** 2], [.25e4 ** 2, 1e4 ** 2]]
         self.areaRngLbl = ['all', 'small', 'medium', 'large']
         self.useCats = 1
 

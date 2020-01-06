@@ -49,7 +49,6 @@ import detectron.datasets.voc_dataset_evaluator as voc_dataset_evaluator
 
 logger = logging.getLogger(__name__)
 
-
 def evaluate_all(
     dataset, all_boxes, all_segms, all_keyps, output_dir, use_matlab=False
 ):

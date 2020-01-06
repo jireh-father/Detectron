@@ -35,6 +35,48 @@ import detectron.utils.boxes as box_utils
 
 logger = logging.getLogger(__name__)
 
+class CustomCOCOeval(COCOeval):
+    def set_param(self, params):
+        self.params = params
+
+class Params:
+    '''
+    Params for coco evaluation api
+    '''
+    def setDetParams(self):
+        self.imgIds = []
+        self.catIds = []
+        # np.arange causes trouble.  the data point on arange is slightly larger than the true value
+        # self.iouThrs = np.linspace(.5, 0.95, int(np.round((0.95 - .5) / .05)) + 1, endpoint=True)
+        self.iouThrs = np.linspace(.95, 1., int(np.round((1. - .95) / .01)) + 1, endpoint=True)
+        self.recThrs = np.linspace(.0, 1.00, int(np.round((1.00 - .0) / .01)) + 1, endpoint=True)
+        self.maxDets = [1, 10, 100]
+        self.areaRng = [[0 ** 2, 1e5 ** 2], [0 ** 2, 32 ** 2], [32 ** 2, 96 ** 2], [96 ** 2, 1e5 ** 2]]
+        self.areaRngLbl = ['all', 'small', 'medium', 'large']
+        self.useCats = 1
+
+    def setKpParams(self):
+        self.imgIds = []
+        self.catIds = []
+        # np.arange causes trouble.  the data point on arange is slightly larger than the true value
+        self.iouThrs = np.linspace(.5, 0.95, int(np.round((0.95 - .5) / .05)) + 1, endpoint=True)
+        self.recThrs = np.linspace(.0, 1.00, int(np.round((1.00 - .0) / .01)) + 1, endpoint=True)
+        self.maxDets = [20]
+        self.areaRng = [[0 ** 2, 1e5 ** 2], [32 ** 2, 96 ** 2], [96 ** 2, 1e5 ** 2]]
+        self.areaRngLbl = ['all', 'medium', 'large']
+        self.useCats = 1
+        self.kpt_oks_sigmas = np.array([.26, .25, .25, .35, .35, .79, .79, .72, .72, .62,.62, 1.07, 1.07, .87, .87, .89, .89])/10.0
+
+    def __init__(self, iouType='segm'):
+        if iouType == 'segm' or iouType == 'bbox':
+            self.setDetParams()
+        elif iouType == 'keypoints':
+            self.setKpParams()
+        else:
+            raise Exception('iouType not supported')
+        self.iouType = iouType
+        # useSegm is deprecated
+        self.useSegm = None
 
 def evaluate_masks(
     json_dataset,
@@ -209,7 +251,9 @@ def _coco_bbox_results_one_category(json_dataset, boxes, cat_id):
 
 def _do_detection_eval(json_dataset, res_file, output_dir):
     coco_dt = json_dataset.COCO.loadRes(str(res_file))
-    coco_eval = COCOeval(json_dataset.COCO, coco_dt, 'bbox')
+    coco_eval = CustomCOCOeval(json_dataset.COCO, coco_dt, 'bbox')
+    params = Params(iouType='bbox')
+    coco_eval.set_param(params)
     coco_eval.evaluate()
     coco_eval.accumulate()
     _log_detection_eval_metrics(json_dataset, coco_eval)

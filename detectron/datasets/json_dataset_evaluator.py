@@ -36,8 +36,13 @@ import detectron.utils.boxes as box_utils
 logger = logging.getLogger(__name__)
 
 class CustomCOCOeval(COCOeval):
-    def set_param(self, params):
+    def set_param(self, params, cocoGt=None):
         self.params = params
+
+        if not cocoGt is None:
+            self.params.imgIds = sorted(cocoGt.getImgIds())
+            self.params.catIds = sorted(cocoGt.getCatIds())
+
 
 class Params:
     '''
@@ -254,7 +259,7 @@ def _do_detection_eval(json_dataset, res_file, output_dir):
     # coco_eval = COCOeval(json_dataset.COCO, coco_dt, 'bbox')
     coco_eval = CustomCOCOeval(json_dataset.COCO, coco_dt, 'bbox')
     params = Params(iouType='bbox')
-    coco_eval.set_param(params)
+    coco_eval.set_param(params, json_dataset.COCO)
     coco_eval.evaluate()
     coco_eval.accumulate()
     _log_detection_eval_metrics(json_dataset, coco_eval)

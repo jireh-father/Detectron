@@ -57,7 +57,6 @@ class CustomCOCOeval(COCOeval):
             iouStr = '{:0.2f}:{:0.2f}'.format(p.iouThrs[0], p.iouThrs[-1]) \
                 if iouThr is None else '{:0.2f}'.format(iouThr)
 
-            print(p.areaRngLbl)
             aind = [i for i, aRng in enumerate(p.areaRngLbl) if aRng == areaRng]
             mind = [i for i, mDet in enumerate(p.maxDets) if mDet == maxDets]
             if ap == 1:
@@ -75,6 +74,7 @@ class CustomCOCOeval(COCOeval):
                     t = np.where(iouThr == p.iouThrs)[0]
                     s = s[t]
                 s = s[:, :, aind, mind]
+            print(areaRng, maxDets, len(s))
             if len(s[s > -1]) == 0:
                 mean_s = -1
             else:

@@ -48,7 +48,7 @@ class Params:
         self.catIds = []
         # np.arange causes trouble.  the data point on arange is slightly larger than the true value
         # self.iouThrs = np.linspace(.5, 0.95, int(np.round((0.95 - .5) / .05)) + 1, endpoint=True)
-        self.iouThrs = np.linspace(.90, 1., int(np.round((1. - .90) / .05)) + 1, endpoint=True)
+        self.iouThrs = np.linspace(.90, .95, int(np.round((.95 - .90) / .05)) + 1, endpoint=True)
         self.recThrs = np.linspace(.0, 1.00, int(np.round((1.00 - .0) / .01)) + 1, endpoint=True)
         self.maxDets = [1, 10, 100]
         self.areaRng = [[0 ** 2, 1e5 ** 2], [0 ** 2, 32 ** 2], [32 ** 2, 96 ** 2], [96 ** 2, 1e5 ** 2]]
@@ -275,7 +275,7 @@ def _log_detection_eval_metrics(json_dataset, coco_eval):
     # IoU_lo_thresh = 0.5
     # IoU_hi_thresh = 0.95
     IoU_lo_thresh = 0.9
-    IoU_hi_thresh = 1.
+    IoU_hi_thresh = 0.95
     ind_lo = _get_thr_ind(coco_eval, IoU_lo_thresh)
     ind_hi = _get_thr_ind(coco_eval, IoU_hi_thresh)
     # precision has dims (iou, recall, cls, area range, max dets)

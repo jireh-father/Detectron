@@ -55,6 +55,18 @@ _DATASETS = {
         _ANN_FN:
             _DATA_DIR + '/table_fp_train/annotation.json'
     },
+    'table_fp_not_table_ig_train': {
+        _IM_DIR:
+            _DATA_DIR + '/table_fp_not_table_ig_train/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_fp_not_table_ig_train/annotation.json'
+    },
+    'table_fp_vague_table_ig_train': {
+        _IM_DIR:
+            _DATA_DIR + '/table_fp_vague_table_ig_train/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_fp_vague_table_ig_train/annotation.json'
+    },
     'table_tp_ig_val': {
         _IM_DIR:
             _DATA_DIR + '/table_tp_ig_val/images',

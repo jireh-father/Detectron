@@ -57,8 +57,8 @@ class CustomCOCOeval(COCOeval):
             iouStr = '{:0.2f}:{:0.2f}'.format(p.iouThrs[0], p.iouThrs[-1]) \
                 if iouThr is None else '{:0.2f}'.format(iouThr)
 
+            print(p.areaRngLbl)
             aind = [i for i, aRng in enumerate(p.areaRngLbl) if aRng == areaRng]
-            print(areaRng, len(aind))
             mind = [i for i, mDet in enumerate(p.maxDets) if mDet == maxDets]
             if ap == 1:
                 # dimension of precision: [TxRxKxAxM]
@@ -147,7 +147,7 @@ class Params:
         self.recThrs = np.linspace(.0, 1.00, int(np.round((1.00 - .0) / .01)) + 1, endpoint=True)
         self.maxDets = [1, 10, 100]
         # self.areaRng = [[0 ** 2, 1e5 ** 2], [0 ** 2, 32 ** 2], [32 ** 2, 96 ** 2], [96 ** 2, 1e5 ** 2]]
-        self.areaRng = [[0 ** 2, 1e5 ** 2], [0 ** 2, 1e2 ** 2], [1e2 ** 2, 1e3 ** 2], [1e3 ** 2, 1e4 ** 2]]
+        self.areaRng = [[0 ** 2, 1e5 ** 2], [0 ** 2, .5e3 ** 2], [.5e3 ** 2, 1e3 ** 2], [1e3 ** 2, 1e4 ** 2]]
         self.areaRngLbl = ['all', 'small', 'medium', 'large']
         self.useCats = 1
 

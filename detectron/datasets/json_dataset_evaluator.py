@@ -74,7 +74,6 @@ class CustomCOCOeval(COCOeval):
                     t = np.where(iouThr == p.iouThrs)[0]
                     s = s[t]
                 s = s[:, :, aind, mind]
-            print(areaRng, maxDets, len(s))
             if len(s[s > -1]) == 0:
                 mean_s = -1
             else:
@@ -147,7 +146,7 @@ class Params:
         self.recThrs = np.linspace(.0, 1.00, int(np.round((1.00 - .0) / .01)) + 1, endpoint=True)
         self.maxDets = [1, 10, 100]
         # self.areaRng = [[0 ** 2, 1e5 ** 2], [0 ** 2, 32 ** 2], [32 ** 2, 96 ** 2], [96 ** 2, 1e5 ** 2]]
-        self.areaRng = [[0 ** 2, 1e5 ** 2], [0 ** 2, .5e3 ** 2], [.5e3 ** 2, 1e3 ** 2], [1e3 ** 2, 1e4 ** 2]]
+        self.areaRng = [[0 ** 2, 1e5 ** 2], [0 ** 2, 1e3 ** 2], [1e3 ** 2, .5e4 ** 2], [.5e4 ** 2, 1e4 ** 2]]
         self.areaRngLbl = ['all', 'small', 'medium', 'large']
         self.useCats = 1
 

@@ -115,6 +115,18 @@ _DATASETS = {
         _ANN_FN:
             _DATA_DIR + '/table_fp_vague_table_ig_val/annotation.json'
     },
+    'table_fp_not_table_ig_val_02': {
+        _IM_DIR:
+            _DATA_DIR + '/table_fp_not_table_ig_val_02/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_fp_not_table_ig_val_02/annotation.json'
+    },
+    'table_fp_vague_table_ig_val_02': {
+        _IM_DIR:
+            _DATA_DIR + '/table_fp_vague_table_ig_val_02/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_fp_vague_table_ig_val_02/annotation.json'
+    },
     'cityscapes_fine_instanceonly_seg_train': {
         _IM_DIR:
             _DATA_DIR + '/cityscapes/images',

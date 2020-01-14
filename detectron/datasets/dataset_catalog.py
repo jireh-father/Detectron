@@ -55,6 +55,12 @@ _DATASETS = {
         _ANN_FN:
             _DATA_DIR + '/table_fp_train/annotation.json'
     },
+    'table_fp_train_multiclass': {
+        _IM_DIR:
+            _DATA_DIR + '/table_fp_train_multiclass/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_fp_train_multiclass/annotation.json'
+    },
     'table_tp_ig_train_multi_class': {
         _IM_DIR:
             _DATA_DIR + '/table_tp_ig_train_multi_class/images',
@@ -91,11 +97,29 @@ _DATASETS = {
         _ANN_FN:
             _DATA_DIR + '/table_tp_nh_val/annotation.json'
     },
+    'table_tp_ig_val_multiclass': {
+        _IM_DIR:
+            _DATA_DIR + '/table_tp_ig_val_multiclass/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_tp_ig_val_multiclass/annotation.json'
+    },
+    'table_tp_nh_val_multiclass': {
+        _IM_DIR:
+            _DATA_DIR + '/table_tp_nh_val_multiclass/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_tp_nh_val_multiclass/annotation.json'
+    },
     'table_fp_val': {
         _IM_DIR:
             _DATA_DIR + '/table_fp_val/images',
         _ANN_FN:
             _DATA_DIR + '/table_fp_val/annotation.json'
+    },
+    'table_fp_val_multiclass': {
+        _IM_DIR:
+            _DATA_DIR + '/table_fp_val_multiclass/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_fp_val_multiclass/annotation.json'
     },
     'table_fp_all_nh_val': {
         _IM_DIR:

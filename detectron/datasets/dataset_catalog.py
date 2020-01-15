@@ -85,6 +85,18 @@ _DATASETS = {
         _ANN_FN:
             _DATA_DIR + '/table_fp_vague_table_ig_train/annotation.json'
     },
+    'table_fp_not_table_train': {
+        _IM_DIR:
+            _DATA_DIR + '/table_fp_not_table_train/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_fp_not_table_train/annotation.json'
+    },
+    'table_fp_vague_table_train': {
+        _IM_DIR:
+            _DATA_DIR + '/table_fp_vague_table_train/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_fp_vague_table_train/annotation.json'
+    },
     'table_tp_ig_val': {
         _IM_DIR:
             _DATA_DIR + '/table_tp_ig_val/images',
@@ -150,6 +162,18 @@ _DATASETS = {
             _DATA_DIR + '/table_fp_vague_table_ig_val_02/images',
         _ANN_FN:
             _DATA_DIR + '/table_fp_vague_table_ig_val_02/annotation.json'
+    },
+    'table_fp_not_table_val': {
+        _IM_DIR:
+            _DATA_DIR + '/table_fp_not_table_val/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_fp_not_table_val/annotation.json'
+    },
+    'table_fp_vague_table_val': {
+        _IM_DIR:
+            _DATA_DIR + '/table_fp_vague_table_val/images',
+        _ANN_FN:
+            _DATA_DIR + '/table_fp_vague_table_val/annotation.json'
     },
     'table_fp_all_nh_val_multi_class': {
         _IM_DIR:
